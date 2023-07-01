@@ -1,5 +1,11 @@
 # Package robocopy
 
+Copies file data from one location to another.
+
+## Usage
+### Import the library
+`pip install py-robocopy`
+
 ## Syntax
 `robocopy <source> <destination> [<file>[ ...]] [<options>]`
 
