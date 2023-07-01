@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: py-robocopy
+Version: 0.0.1
+Summary: Copies file data from one location to another.
+Author-email: Suyash Sonkesaria <suyashsonkesaria@gmail.com>
+Project-URL: Homepage, https://github.com/suyashsonkesaria/robocopy
+Project-URL: Bug Tracker, https://github.com/suyashsonkesaria/robocopy/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+# Package robocopy
+
+Syntax
+robocopy <source> <destination> [<file>[ ...]] [<options>]
+
+For example, to copy a file named yearly-report.mov from c:\reports to a file share \\marketing\videos while enabling multi-threading for higher performance (with the /mt parameter) and the ability to restart the transfer in case it's interrupted (with the /z parameter), type:
+robocopy c:\reports "\\marketing\videos" yearly-report.mov /mt /z
+
+For more details : https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/robocopy
+
+
