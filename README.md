@@ -2,9 +2,14 @@
 
 Copies file data from one location to another.
 
-## Usage
 ### Import the library
 `pip install py-robocopy`
+
+## Usage
+
+`from RoboCopy import robocopy`
+
+`robocopy.copy(<source-file-path>,<destination-file-path>)`
 
 ## Syntax
 `robocopy <source> <destination> [<file>[ ...]] [<options>]`
