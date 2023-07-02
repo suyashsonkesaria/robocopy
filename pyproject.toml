@@ -10,7 +10,7 @@ requires-python = ">=3.7"
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: Microsoft :: Windows",
-    "Operating System :: Windows",
+    "Operating System :: OS Independent",
 ]
 
 [project.urls]
