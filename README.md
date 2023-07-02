@@ -1,8 +1,29 @@
-# Package robocopy
+# Package py-robocopy
 
-Copies file data from one location to another.
+Copies files/data from one location to another.
 
-### Import the library
+## Description:
+py-robocopy is a Python library that serves as a wrapper for Robocopy, a robust file copying and synchronization tool available in Windows. It provides a convenient and straightforward interface to interact with Robocopy commands and perform advanced file operations within your Python applications.
+
+### Key Features:
+- Seamless Integration: py-robocopy seamlessly integrates with your Python projects, enabling you to leverage the capabilities of Robocopy directly from your codebase.
+
+- File Copying and Synchronization: The library simplifies file copying and synchronization tasks by utilizing Robocopy's powerful features. You can specify source and destination directories, define files to be copied, and control various copying options.
+
+- Advanced Copying Options: py-robocopy supports a wide range of advanced options provided by Robocopy. This includes copying subdirectories, preserving file attributes and timestamps, handling retries on failed copies, and mirroring directory structures.
+
+- Logging and Error Handling: The library offers built-in logging functionality, allowing you to track the progress of copying operations and save the output to log files. It also provides error-handling mechanisms to manage exceptions during the copying process.
+
+- Platform Compatibility: While Robocopy is primarily a Windows utility, py-robocopy is designed to work seamlessly on Windows systems where Robocopy is available.
+
+### Use Cases:
+
+- Automating file backup and synchronization tasks within Python applications.
+- Building data migration and replication tools that require efficient file copying.
+- Developing file management utilities with advanced copying options.
+- Integrating file synchronization functionality into custom scripts or workflows
+
+### Install the library
 `pip install py-robocopy`
 
 ## Usage
@@ -315,3 +336,7 @@ For more details : https://learn.microsoft.com/en-us/windows-server/administrati
 </tr>
 </tbody>
 </table></div>
+
+Robocopy, short for "Robust File Copy," is a command-line utility available in Windows operating systems. It is used for copying and synchronizing files and directories, and it offers more advanced features than the regular file copy command (copy or xcopy). Robocopy was first introduced with the Windows NT 4.0 Resource Kit and has since been included as a standard command-line tool in subsequent versions of Windows.
+
+Robocopy is a powerful tool for advanced file copying and synchronization tasks, and it can be particularly useful when dealing with large file sets or when you need to maintain file attributes, timestamps, and NTFS permissions during the copying process.
