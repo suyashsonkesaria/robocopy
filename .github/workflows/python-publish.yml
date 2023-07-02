@@ -17,7 +17,10 @@ jobs:
   deploy:
 
     runs-on: ubuntu-latest
-
+    
+    permissions:
+      id-token: write
+      
     steps:
     - uses: actions/checkout@v3
     - name: Set up Python
@@ -33,7 +36,11 @@ jobs:
       run: python -m build
 #     - name: Publish package
 #       run: python -m twine upload --repository testpypi dist/*
-    - name: Publish package distributions to TestPyPI
+#     - name: Publish package distributions to TestPyPI
+#       uses: pypa/gh-action-pypi-publish@release/v1
+#       with:
+#         repository-url: https://test.pypi.org/legacy/
+
+      # retrieve your distributions here
+    - name: Publish package distributions to PyPI
       uses: pypa/gh-action-pypi-publish@release/v1
-      with:
-        repository-url: https://test.pypi.org/legacy/
