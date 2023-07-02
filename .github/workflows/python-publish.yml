@@ -18,8 +18,8 @@ jobs:
 
     runs-on: ubuntu-latest
     
-    permissions:
-      id-token: write
+#     permissions:
+#       id-token: write
       
     steps:
     - uses: actions/checkout@v3
@@ -45,26 +45,32 @@ jobs:
 #     - name: Publish package distributions to PyPI
 #       uses: pypa/gh-action-pypi-publish@release/v1
 
-    - name: mint API token
-      id: mint-token
-      run: |
-        # retrieve the ambient OIDC token
-        resp=$(curl -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
-          "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=pypi")
-        oidc_token=$(jq '.value' <<< "${resp}")
+#     - name: mint API token
+#       id: mint-token
+#       run: |
+#         # retrieve the ambient OIDC token
+#         resp=$(curl -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
+#           "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=pypi")
+#         oidc_token=$(jq '.value' <<< "${resp}")
 
-        # exchange the OIDC token for an API token
-        resp=$(curl -X POST https://pypi.org/_/oidc/github/mint-token -d "{\"token\": \"${oidc_token}\"}")
-        api_token=$(jq '.token' <<< "${resp}")
+#         # exchange the OIDC token for an API token
+#         resp=$(curl -X POST https://pypi.org/_/oidc/github/mint-token -d "{\"token\": \"${oidc_token}\"}")
+#         api_token=$(jq '.token' <<< "${resp}")
 
-        # mask the newly minted API token, so that we don't accidentally leak it
-        echo "::add-mask::${api_token}"
+#         # mask the newly minted API token, so that we don't accidentally leak it
+#         echo "::add-mask::${api_token}"
 
-        # see the next step in the workflow for an example of using this step output
-        echo "api-token=${api_token}" >> "${GITHUB_OUTPUT}"
+#         # see the next step in the workflow for an example of using this step output
+#         echo "api-token=${api_token}" >> "${GITHUB_OUTPUT}"
 
-    - name: publish
-      # gh-action-pypi-publish uses TWINE_PASSWORD automatically
-      uses: pypa/gh-action-pypi-publish@release/v1
+#     - name: publish
+#       # gh-action-pypi-publish uses TWINE_PASSWORD automatically
+#       uses: pypa/gh-action-pypi-publish@release/v1
+#       with:
+#         password: ${{ steps.mint-token.outputs.api-token }}
+
+    - name: Publish package
+      uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
       with:
-        password: ${{ steps.mint-token.outputs.api-token }}
+        user: __token__
+        password: ${{ secrets.ACTIONS_ID_TOKEN_REQUEST_TOKEN }}
