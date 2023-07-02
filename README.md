@@ -28,9 +28,29 @@ py-robocopy is a Python library that serves as a wrapper for Robocopy, a robust 
 
 ## Usage
 
-`from RoboCopy import robocopy`
+```
+from RoboCopy import robocopy
+robocopy.copy(<source-file-path>,<destination-file-path>,<options>)
+```
 
-`robocopy.copy(<source-file-path>,<destination-file-path>)`
+## Examples
+
+### Basic File Copy
+
+```
+from RoboCopy import robocopy
+robocopy.copy("C:\\source_folder", "D:\\destination_folder")
+```
+This example demonstrates a basic file copy operation using robocopy. It copies all files and subdirectories from the source folder `C:\\source_folder` to the destination folder `D:\\destination_folder`.
+
+###  File Copy with Options
+```
+from RoboCopy import robocopy
+
+options = '/Z /R:3 /W:5'
+robocopy.copy("C:\\source_folder", "D:\\destination_folder", options)
+```
+In this example, the `options` parameter is used to specify additional options for the copying operation. The `/Z` option enables restartable mode, allowing the copying process to be resumed in case of interruption. The `/R:3` option sets the number of retries on failed copies to 3, and the `/W:5` option sets the wait time between retries to 5 seconds.
 
 ## Syntax
 `robocopy <source> <destination> [<file>[ ...]] [<options>]`
